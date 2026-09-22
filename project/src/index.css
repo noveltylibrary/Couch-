@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-cyan-light: #ecfeff;
+    --color-cyan: #06b6d4;
+    --color-cyan-dark: #0891b2;
+    --color-teal: #14b8a6;
+    --color-teal-dark: #0d9488;
+    --color-deep: #0c4a6e;
+    --color-deep-dark: #0e7490;
+    --color-paper: #f0fdfa;
+    --color-bg: #ecfeff;
+    --color-surface: #ffffff;
+    --color-text: #0c4a6e;
+    --color-text-muted: rgba(12, 74, 110, 0.5);
+    --color-border: rgba(12, 74, 110, 0.08);
+  }
+
+  .dark {
+    --color-cyan-light: #042f2e;
+    --color-cyan: #22d3ee;
+    --color-cyan-dark: #06b6d4;
+    --color-teal: #2dd4bf;
+    --color-teal-dark: #14b8a6;
+    --color-deep: #ccfbf1;
+    --color-deep-dark: #5eead4;
+    --color-paper: #042f2e;
+    --color-bg: #021a1a;
+    --color-surface: #0f3535;
+    --color-text: #ccfbf1;
+    --color-text-muted: rgba(204, 251, 241, 0.5);
+    --color-border: rgba(204, 251, 241, 0.1);
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Fraunces', Georgia, serif;
+  }
+}
+
+@layer components {
+  .container-prose {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium text-sm tracking-wide transition-all duration-300;
+    background: linear-gradient(135deg, var(--color-teal-dark), var(--color-deep-dark));
+    color: white;
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.35);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium text-sm tracking-wide transition-all duration-300 border;
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+  .btn-ghost:hover {
+    border-color: var(--color-teal);
+    background-color: rgba(20, 184, 166, 0.06);
+  }
+
+  .surface-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    @apply rounded-2xl;
+  }
+
+  .card-review {
+    @apply rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer;
+    background-color: var(--color-surface);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
+  .card-review:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide transition-colors duration-200 cursor-pointer;
+    background-color: rgba(20, 184, 166, 0.12);
+    color: var(--color-teal-dark);
+  }
+  .tag:hover {
+    background-color: rgba(20, 184, 166, 0.22);
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl text-sm transition-all;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+  .input-field::placeholder {
+    color: var(--color-text-muted);
+  }
+  .input-field:focus {
+    outline: none;
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.1);
+  }
+
+  .gradient-teal {
+    background: linear-gradient(135deg, var(--color-teal-dark), var(--color-deep-dark));
+  }
+  .gradient-teal-text {
+    background: linear-gradient(135deg, var(--color-teal-dark), var(--color-deep-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+  .animate-fade-up { animation: fadeUp 0.6s ease-out forwards; }
+  .animate-scale-in { animation: scaleIn 0.4s ease-out forwards; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-paper); }
+::-webkit-scrollbar-thumb {
+  background: rgba(13, 148, 136, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(13, 148, 136, 0.35); }

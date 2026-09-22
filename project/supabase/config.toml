@@ -1,0 +1,11 @@
+[functions.blog-posts]
+verify_jwt = false
+entrypoint = "./functions/blog-posts/index.ts"
+
+[functions.ig-poster]
+verify_jwt = false
+entrypoint = "./functions/ig-poster/index.ts"
+
+[functions.sheet-proxy]
+verify_jwt = false
+entrypoint = "./functions/sheet-proxy/index.ts"
